@@ -1,32 +1,35 @@
 package com.example.masteringcompose.widgets
 
-import androidx.compose.foundation.text.BasicText
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.text.input.OffsetMapping
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.TransformedText
+import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation.Companion
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.masteringcompose.style.myStyle
 
+
+// +20 155 3850 440
 @Composable
 fun FirstFoundationComponent() {
-    BasicText(
-        text = buildAnnotatedString {
-            withStyle(SpanStyle(color = Color.Blue)) {
-                append("@Muaz")
-            }
+    var phoneNo by remember { mutableStateOf("") };
 
-            withStyle(SpanStyle(color = Color.Black)) {
-                append(" Good Morning..❤️")
-            }
+    BasicTextField(
+        value = phoneNo,
+        onValueChange = {
+            phoneNo = it;
         },
-        style = myStyle
+        visualTransformation =  PasswordVisualTransformation()
     )
+
+
 }
 
 @Preview(showBackground = true)
