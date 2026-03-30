@@ -29,6 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.masteringcompose.R
+import kotlin.div
 
 @Composable
 fun PostCard(
@@ -39,17 +40,8 @@ fun PostCard(
     postDate : String,
     modifier: Modifier = Modifier
 ) {
-
-    Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(24.dp))
-            .background(color = Color.White)
-            .border(
-                width = 1.dp,
-                color = Color.Black.copy(0.08f),
-                shape = RoundedCornerShape(24.dp)
-            )
+    Card(
+        modifier = modifier,
 
     ) {
         PostHeader(
